@@ -1,7 +1,35 @@
 <html style="--main--position--: 199px;"><head>
   <meta charset="UTF-8">
   <title>List of Links</title>
-<link rel="stylesheet" type="text/css" href="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/styles/inject.css"><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/utils/constants.js"></script><div id="vsc-constants-loaded" style="display: none;">Constants loaded at 2025-08-12T01:17:34.759Z</div><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/utils/logger.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/utils/debug-helper.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/utils/dom-utils.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/utils/event-manager.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/core/storage-manager.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/core/settings.js"></script><style id="bt-default-injected-css">
+  <script>
+    async function displayLinks() {
+      try {
+        const response = await fetch("https://raw.githubusercontent.com/tpr297/redirect/main/link.txt");
+        const text = await response.text();
+        const links = text.split(/\r?\n/).map(link => link.trim()).filter(link => link);
+
+        if (links.length === 0) {
+          document.body.innerHTML = "<h2>No links found.</h2>";
+          return;
+        }
+
+        let linkListHTML = "<h2>Links:</h2><ul>";
+        links.forEach((link, index) => {
+          linkListHTML += `<li>${index + 1}: <a href="${link}" target="_blank">${link}</a></li>`;
+        });
+        linkListHTML += "</ul>";
+
+        document.body.innerHTML = linkListHTML;
+
+      } catch (err) {
+        document.body.innerHTML = "<h2>Error loading links.</h2>";
+        console.error(err);
+      }
+    }
+
+    window.onload = displayLinks;
+  </script>
+<link rel="stylesheet" type="text/css" href="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/styles/inject.css"><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/utils/constants.js"></script><div id="vsc-constants-loaded" style="display: none;">Constants loaded at 2025-08-13T05:30:48.863Z</div><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/utils/logger.js"></script><style id="bt-default-injected-css">
    
 [bt-global-status="dual"] [bt-translate-status]:not([bt-translate-status="translated"]) .bt-copied-node-wrapper {
   display: none !important;
@@ -143,7 +171,7 @@
     padding-top: 4px;
     padding-bottom: 4px;
 }
-  </style><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/observers/media-observer.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/observers/mutation-observer.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/core/action-handler.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/core/video-controller.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/ui/controls.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/ui/drag-handler.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/ui/shadow-dom.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/site-handlers/base-handler.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/site-handlers/netflix-handler.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/site-handlers/youtube-handler.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/site-handlers/facebook-handler.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/site-handlers/amazon-handler.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/site-handlers/apple-handler.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/site-handlers/index.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/content/inject.js"></script><div id="vsc-test-indicator" style="display: none;"></div><style type="text/css">
+  </style><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/utils/debug-helper.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/utils/dom-utils.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/utils/event-manager.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/core/storage-manager.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/core/settings.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/observers/media-observer.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/observers/mutation-observer.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/core/action-handler.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/core/video-controller.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/ui/controls.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/ui/drag-handler.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/ui/shadow-dom.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/site-handlers/base-handler.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/site-handlers/netflix-handler.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/site-handlers/youtube-handler.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/site-handlers/facebook-handler.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/site-handlers/amazon-handler.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/site-handlers/apple-handler.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/site-handlers/index.js"></script><script src="chrome-extension://nffaoalbilbmmfgbnbgppjihopabppdk/src/content/inject.js"></script><div id="vsc-test-indicator" style="display: none;"></div><style type="text/css">
             :root{
                 --main--position--: 340px;
                 --translate--toast--right--:70px;
@@ -159,4 +187,4 @@
                 --hasTranslate--left--:28.62px;
             }
         </style></head>
-<body><h2>Links:</h2><ul><li>1: <a href="https://jumpshare.com/s/0TYjSbiF6n4hxchUCLAA" target="_blank">https://jumpshare.com/s/0TYjSbiF6n4hxchUCLAA</a></li><li>2: <a href="https://jumpshare.com/s/5NsNjhUViQK6vBBGFieT" target="_blank">https://jumpshare.com/s/5NsNjhUViQK6vBBGFieT</a></li><li>3: <a href="https://jumpshare.com/s/oPPoaSirzy6p4YQlUZzT" target="_blank">https://jumpshare.com/s/oPPoaSirzy6p4YQlUZzT</a></li></ul></body><div id="deepTranslate-floating-button"></div></html>
+<body><h2>Links:</h2><ul><li>1: <a href="https://jumpshare.com/s/5NsNjhUViQK6vBBGFieT" target="_blank">https://jumpshare.com/s/5NsNjhUViQK6vBBGFieT</a></li><li>2: <a href="https://jumpshare.com/s/oPPoaSirzy6p4YQlUZzT" target="_blank">https://jumpshare.com/s/oPPoaSirzy6p4YQlUZzT</a></li><li>3: <a href="https://jumpshare.com/s/y3O09GNiY1esXlBaKqzw" target="_blank">https://jumpshare.com/s/y3O09GNiY1esXlBaKqzw</a></li><li>4: <a href="https://jumpshare.com/s/pUO2fPRIln02Xpj59TEU" target="_blank">https://jumpshare.com/s/pUO2fPRIln02Xpj59TEU</a></ul></body><rq-implicit-test-rule-widget class="rq-element" draggable="true" style="display: none;"></rq-implicit-test-rule-widget><div id="deepTranslate-floating-button"></div></html>
